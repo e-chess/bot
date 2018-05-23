@@ -31,10 +31,24 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
                     "Didn't get that!",
                     promptStyle: PromptStyle.Auto);
             }
+            else if (message.Text == "best move")
+            {
+                await context.PostAsync($"You could move the knight, it might be the best move.");
+                context.Wait(MessageReceivedAsync);
+            }
+            else if (message.Text == "score")
+            {
+                await context.PostAsync($"Player 1, your score is 429.");
+                context.Wait(MessageReceivedAsync);
+            }
+            else if (message.Text == "link")
+            {
+                await context.PostAsync($"www.jan-patrick.de/e-chess");
+                context.Wait(MessageReceivedAsync);
+            }
             else
             {
-                //await context.PostAsync($"{this.count++}: You said {message.Text}");
-                await context.PostAsync($"www.jan-patrick.de/e-chess");
+                await context.PostAsync($"{this.count++}: You said {message.Text}");
                 context.Wait(MessageReceivedAsync);
             }
         }
